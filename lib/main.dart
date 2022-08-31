@@ -1,10 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_session/home.dart';
+import 'package:firebase_session/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized(); //is used to interact with the Flutter engine
-  await Firebase.initializeApp(); // needs to call native code to initialize Firebase
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); //is used to interact with the Flutter engine
+  await Firebase
+      .initializeApp(); // needs to call native code to initialize Firebase
   runApp(const MyApp());
 }
 
@@ -19,9 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: ChangeNotifierProvider(
+        create: (context)=>MyProvider(),
+          child: const HomeScreen()),
     );
   }
 }
-
-

@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_session/login.dart';
+import 'package:firebase_session/register.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     firebaseAuth.authStateChanges().listen((User? user) {
       if(user==null){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> RegisterScreen()));
       }
       else {
       }
